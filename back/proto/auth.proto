@@ -1,0 +1,23 @@
+syntax = "proto3";
+package authPackage;
+
+message userDetails {
+    string username = 1;
+    string password = 2;
+}
+
+message returnToken {
+    string token = 1;
+}
+
+message statusResult {
+    bool success = 1;
+}
+
+message nullData {}
+
+service AuthService {
+    rpc login (userDetails) returns (returnToken);
+    rpc register (userDetails) returns (statusResult);
+    // rpc refreshToken (Request) returns (Response);
+}

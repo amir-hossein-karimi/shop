@@ -1,19 +1,17 @@
 {
-  "name": "client",
+  "name": "user",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon node start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fastify/swagger": "^8.3.1",
-    "@fastify/swagger-ui": "^1.5.0",
     "@grpc/grpc-js": "^1.8.11",
     "@grpc/proto-loader": "^0.7.5",
-    "fastify": "^4.14.0"
+    "mongoose": "^7.0.0"
   }
 }
