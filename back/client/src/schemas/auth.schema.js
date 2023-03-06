@@ -21,6 +21,20 @@ const loginSchema = {
       },
     },
   },
+  body: {
+    type: "object",
+    required: ["username", "password"],
+    properties: {
+      username: {
+        type: "string",
+        description: "enter your username",
+      },
+      password: {
+        type: "string",
+        description: "enter your password",
+      },
+    },
+  },
 };
 
 const loginPreHandlers = [

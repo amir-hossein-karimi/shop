@@ -5,8 +5,8 @@ class AuthController {
   login(req, reply) {
     authClient.login(
       {
-        username: "amir",
-        password: "test",
+        username: req.body.username,
+        password: req.body.password,
       },
       (error, { token }) => {
         if (error) {
