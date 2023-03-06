@@ -1,4 +1,5 @@
 const loginSchema = {
+  tags: ["auth"],
   response: {
     200: {
       type: "object",
