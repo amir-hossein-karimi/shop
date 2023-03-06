@@ -60,7 +60,7 @@ class Server {
     app.setErrorHandler((error, request, reply) => {
       reply.status(error?.statusCode || 500).send({
         success: false,
-        status: error?.statusCode || 500,
+        statusCode: error?.statusCode || 500,
         message: error?.message || "internal error",
       });
     });
