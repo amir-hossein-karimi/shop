@@ -37,18 +37,46 @@ const loginSchema = {
   },
 };
 
-const loginPreHandlers = [
-  (req, reply, next) => {
-    console.log("first pre handler");
-    next();
+const registerSchema = {
+  tags: ["auth"],
+  response: {
+    200: {
+      type: "object",
+      properties: {
+        success: {
+          type: "boolean",
+        },
+        statusCode: {
+          type: "integer",
+        },
+        data: {
+          type: "object",
+          properties: {
+            message: {
+              type: "string",
+            },
+          },
+        },
+      },
+    },
   },
-  (req, reply, next) => {
-    console.log("second pre handler");
-    next();
+  body: {
+    type: "object",
+    required: ["username", "password"],
+    properties: {
+      username: {
+        type: "string",
+        description: "enter your username",
+      },
+      password: {
+        type: "string",
+        description: "enter your password",
+      },
+    },
   },
-];
+};
 
 module.exports = {
   loginSchema,
-  loginPreHandlers,
+  registerSchema,
 };

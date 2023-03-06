@@ -1,0 +1,37 @@
+syntax = "proto3";
+package userPackage;
+
+message singleUser {
+    string username = 1;
+    string password = 2;
+    string role = 3;
+}
+
+message userList {
+    repeated singleUser users = 1;
+}
+
+message userId {
+    string id = 1;
+}
+
+message updateUser {
+    string id = 1;
+    string username = 2;
+    string password = 3;
+    string role = 4;
+}
+
+message statusResult {
+    bool success = 1;
+}
+
+message nullData {}
+
+service UserService {
+    rpc getAllUsers (nullData) returns (userList);
+    rpc getOneUser (userId) returns (singleUser);
+    rpc createUser (singleUser) returns (statusResult);
+    rpc updateUser (updateUser) returns (statusResult);
+    rpc deleteUser (userId) returns (statusResult);
+}

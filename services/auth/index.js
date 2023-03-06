@@ -1,3 +1,6 @@
 const app = require("./src/config/server");
+const { AuthController } = require("./src/controller");
 
-app();
+app({
+  login: AuthController.login,
+});

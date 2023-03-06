@@ -11,21 +11,21 @@ const protoPath = path.join(
   "..",
   "..",
   "proto",
-  "auth.proto"
+  "user.proto"
 );
 
 // load proto
-const authProto = protoLoader.loadSync(protoPath);
+const userProto = protoLoader.loadSync(protoPath);
 
 // get proto package with gRPC
-const { authPackage } = grpc.loadPackageDefinition(authProto);
+const { userPackage } = grpc.loadPackageDefinition(userProto);
 
 const app = (services) => {
   // create a gRPC server
   const server = new grpc.Server();
 
   // add services to proto services
-  server.addService(authPackage.AuthService.service, services);
+  server.addService(userPackage.UserService.service, services);
 
   // bind url and ServerCredentials and callBack
   server.bindAsync(
@@ -33,9 +33,9 @@ const app = (services) => {
     grpc.ServerCredentials.createInsecure(),
     (err, port) => {
       if (err) {
-        return console.log("grpc auth service error", err.message);
+        return console.log("grpc user service error", err.message);
       }
-      console.log("auth services run on", port);
+      console.log("user services run on", port);
       // start server is errors are clear
       server.start();
     }
