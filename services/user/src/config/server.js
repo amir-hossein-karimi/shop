@@ -29,7 +29,7 @@ const app = (services) => {
 
   // bind url and ServerCredentials and callBack
   server.bindAsync(
-    serviceUrl,
+    "localhost:5002",
     grpc.ServerCredentials.createInsecure(),
     (err, port) => {
       if (err) {

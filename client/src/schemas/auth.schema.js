@@ -16,6 +16,9 @@ const loginSchema = {
             token: {
               type: "string",
             },
+            refreshToken: {
+              type: "string",
+            },
           },
         },
       },

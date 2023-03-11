@@ -10,6 +10,24 @@ class UserController {
       ],
     });
   }
+
+  createUser(call, callBack) {
+    const { username, password } = call.request;
+
+    console.log("in");
+
+    console.log({ username, password });
+
+    callBack(null, {
+      success: true,
+    });
+  }
+
+  getOneUser() {}
+
+  updateUser() {}
+
+  deleteUser() {}
 }
 
 module.exports = {

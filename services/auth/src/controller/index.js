@@ -1,7 +1,13 @@
+const { createJWT } = require("../utils/jwt");
+
 class AuthController {
   login(call, callBack) {
-    console.log(call.request);
-    callBack(null, { token: "this is auth service token" });
+    const { username } = call.request;
+
+    const userToken = createJWT({ username });
+    const userRefreshToken = createJWT({ username }, true);
+
+    callBack(null, { token: userToken, refreshToken: userRefreshToken });
   }
 }
 
