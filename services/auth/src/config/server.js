@@ -1,7 +1,7 @@
 const path = require("path");
 const protoLoader = require("@grpc/proto-loader");
 const grpc = require("@grpc/grpc-js");
-const { serviceUrl } = require("../../../constants");
+const { SERVICE_URLS } = require("../../../constants");
 
 // create proto path
 const protoPath = path.join(
@@ -29,7 +29,7 @@ const app = (services) => {
 
   // bind url and ServerCredentials and callBack
   server.bindAsync(
-    "localhost:5001",
+    SERVICE_URLS.AUTH,
     grpc.ServerCredentials.createInsecure(),
     (err, port) => {
       if (err) {
