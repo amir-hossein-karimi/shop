@@ -5,7 +5,6 @@ const ApiError = require("../errors/apiError");
 class AuthController {
   login(req, reply) {
     authClient.login(req.body, (error, data) => {
-      console.log("data", data);
       if (error) {
         console.log(error);
         throw new ApiError(500, "internal server error");
@@ -28,11 +27,10 @@ class AuthController {
     userClient.createUser(
       { username, password, role: "USER" },
       (error, data) => {
-        if (error) {
+        if (error && !data.success) {
           console.log("error", error);
           throw new ApiError(500, "internal server error");
         } else {
-          console.log(data);
           reply.send({
             success: true,
             statusCode: 201,
