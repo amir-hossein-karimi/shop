@@ -8,6 +8,7 @@ message userDetails {
 
 message returnToken {
     string token = 1;
+    string refreshToken = 2;
 }
 
 message statusResult {

@@ -35,7 +35,7 @@ class AuthController {
           console.log(data);
           reply.send({
             success: true,
-            statusCode: 200,
+            statusCode: 201,
             data: {
               message: "user create successfully",
             },
